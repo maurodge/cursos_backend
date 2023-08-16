@@ -1,0 +1,27 @@
+package model.services;
+
+import model.entities.CarRental;
+import model.entities.Invoice;
+
+public class RentalService {
+
+	private Double pricePerDay;
+	private Double pricePerHour;
+	
+	private BrazilTaxService taxService;
+	
+	
+	// neste caso não tem construtor vazio para obrigar a entrada de dados quando iniciar o rentalservice
+	public RentalService(Double pricePerDay, Double pricePerHour, BrazilTaxService taxService) {
+		this.pricePerDay = pricePerDay;
+		this.pricePerHour = pricePerHour;
+		this.taxService = taxService;
+	}
+	
+	// metodo de geração de fatura
+	
+	public void processInvoice(CarRental carRental) {
+		
+		carRental.setInvoice(new Invoice(50.0, 10.0));
+	}
+}
